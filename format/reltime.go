@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// RelTime implements fmt.Stringer interface and formats a time.Time into a relative value
 type RelTime struct {
 	Time time.Time
 }

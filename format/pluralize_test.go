@@ -1,6 +1,7 @@
 package format
 
 import (
+	"fmt"
 	"testing"
 
 	. "github.com/smartystreets/goconvey/convey"
@@ -19,4 +20,14 @@ func TestPluralize(t *testing.T) {
 			So(AutoPluralize(2, "sheep"), ShouldEqual, "2 sheep")
 		})
 	})
+}
+
+func ExampleAutoPluralize() {
+	fmt.Println(AutoPluralize(2, "child"))
+	// Output: 2 children
+}
+
+func ExampleAutoPluralizer() {
+	fmt.Printf("Jack has %s and Tom has %s.", AutoPluralizer{1, "candy"}, AutoPluralizer{2, "candy"})
+	// Output: Jack has 1 candy and Tom has 2 candies.
 }

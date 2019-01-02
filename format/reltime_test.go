@@ -1,6 +1,7 @@
 package format
 
 import (
+	"fmt"
 	"testing"
 	"time"
 
@@ -26,4 +27,15 @@ func TestRelTime(t *testing.T) {
 			So(n.String(), ShouldEqual, "2 minutes from now")
 		})
 	})
+}
+
+func ExampleRelTime() {
+	t := RelTime{time.Now().Add(-5 * time.Minute)}
+	fmt.Println(t)
+	// Output: 5 minutes ago
+}
+func ExampleRelTime_future() {
+	t := RelTime{time.Now().Add(5 * time.Minute)}
+	fmt.Println(t)
+	// Output: 5 minutes from now
 }
